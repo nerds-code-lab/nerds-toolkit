@@ -12,6 +12,24 @@ Requires WordPress 6.6+ and PHP 8.2+. Elementor, WooCommerce and Contact Form 7 
 4. In Elementor, use **Site identity**, **WordPress menu** and **Business contact** widgets to reference the site's shared information. Other Elementor Free widgets can compose the rest of the layout.
 5. Publish the layout. Select it under the theme's header/footer Customizer controls. An unpublished, trashed, password-protected or missing layout never renders publicly; the theme uses its fallback.
 
+## Theme setup dashboard
+
+Themes can declare WordPress.org plugins for the **Nerds Toolkit → Dashboard** screen. The dashboard reports whether each plugin is missing, installed or active and uses WordPress's native nonce-protected installation and activation actions.
+
+```php
+add_filter( 'nerds_toolkit_recommended_plugins', static function( array $plugins ): array {
+	$plugins['elementor'] = array(
+		'name' => 'Elementor',
+		'file' => 'elementor/elementor.php',
+		'required' => true,
+		'description' => 'Page editing with Elementor Free.',
+	);
+	return $plugins;
+} );
+```
+
+The array key must be the WordPress.org plugin slug. `file` is the installed plugin basename. This API intentionally installs only from WordPress.org; themes must not silently download arbitrary remote packages.
+
 Only administrators (users with `manage_options`) can create, edit, publish or access layouts through REST. Logged-out requests cannot preview layouts or read their REST endpoints. Elementor preview is allowed only for the authenticated administrator editing the requested layout. Layouts are excluded from search, archives and navigation selectors.
 
 Native WordPress editor equivalents use the Shortcode block:

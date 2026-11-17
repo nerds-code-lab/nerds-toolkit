@@ -40,9 +40,9 @@ function nerds_lab_register_business_settings(): void {
 		'default' => array(),
 		'show_in_rest' => false,
 	) );
-	add_settings_section( 'nerds_lab_contact', __( 'Business details', 'nerds-toolkit' ), '__return_false', 'nerds-lab' );
+	add_settings_section( 'nerds_lab_contact', __( 'Business details', 'nerds-toolkit' ), '__return_false', 'nerds-lab-business' );
 	foreach ( nerds_lab_business_fields() as $name => $field ) {
-		add_settings_field( $name, $field['label'], 'nerds_lab_business_field', 'nerds-lab', 'nerds_lab_contact', array_merge( $field, array( 'name' => $name, 'label_for' => 'nl-' . $name ) ) );
+		add_settings_field( $name, $field['label'], 'nerds_lab_business_field', 'nerds-lab-business', 'nerds_lab_contact', array_merge( $field, array( 'name' => $name, 'label_for' => 'nl-' . $name ) ) );
 	}
 }
 
@@ -57,8 +57,9 @@ function nerds_lab_business_field( array $field ): void {
 }
 
 function nerds_lab_register_admin_menu(): void {
-	add_menu_page( __( 'Nerds Lab', 'nerds-toolkit' ), __( 'Nerds Lab', 'nerds-toolkit' ), 'manage_options', 'nerds-lab', 'nerds_lab_settings_page', 'dashicons-layout', 59 );
-	add_submenu_page( 'nerds-lab', __( 'Business details', 'nerds-toolkit' ), __( 'Business details', 'nerds-toolkit' ), 'manage_options', 'nerds-lab', 'nerds_lab_settings_page' );
+	add_menu_page( __( 'Nerds Toolkit', 'nerds-toolkit' ), __( 'Nerds Toolkit', 'nerds-toolkit' ), 'manage_options', 'nerds-lab', 'nerds_toolkit_dashboard_page', 'dashicons-layout', 59 );
+	add_submenu_page( 'nerds-lab', __( 'Dashboard', 'nerds-toolkit' ), __( 'Dashboard', 'nerds-toolkit' ), 'manage_options', 'nerds-lab', 'nerds_toolkit_dashboard_page' );
+	add_submenu_page( 'nerds-lab', __( 'Business details', 'nerds-toolkit' ), __( 'Business details', 'nerds-toolkit' ), 'manage_options', 'nerds-lab-business', 'nerds_lab_settings_page' );
 }
 
 function nerds_lab_settings_page(): void {
@@ -77,7 +78,7 @@ function nerds_lab_settings_page(): void {
 		<?php settings_errors(); ?>
 		<form action="options.php" method="post">
 			<?php settings_fields( 'nerds_lab_business' ); ?>
-			<?php do_settings_sections( 'nerds-lab' ); ?>
+			<?php do_settings_sections( 'nerds-lab-business' ); ?>
 			<?php submit_button(); ?>
 		</form>
 	</div>
