@@ -3,7 +3,7 @@
  * Plugin Name: Nerds Toolkit
  * Plugin URI: https://github.com/nerds-code-lab/nerds-toolkit
  * Description: Reusable site layouts, business data, navigation, Elementor widgets and optional WooCommerce tools.
- * Version: 1.2.0
+ * Version: 1.2.1
  * Requires at least: 6.6
  * Requires PHP: 8.2
  * Author: Nerds Lab
@@ -17,7 +17,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'NERDS_TOOLKIT_VERSION', '1.2.0' );
+define( 'NERDS_TOOLKIT_VERSION', '1.2.1' );
 define( 'NERDS_TOOLKIT_PATH', plugin_dir_path( __FILE__ ) );
 define( 'NERDS_TOOLKIT_URL', plugin_dir_url( __FILE__ ) );
 

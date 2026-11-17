@@ -1,32 +1,26 @@
 <?php
-/** Native updater backed by signed GitHub release metadata for this public plugin. */
+/** Native updater backed by the public manifest in the canonical GitHub repository. */
 defined( 'ABSPATH' ) || exit;
 
 function nerds_toolkit_release_metadata(): ?array {
 	$cached = get_site_transient( 'nerds_toolkit_github_release' );
 	if ( is_array( $cached ) ) { return $cached; }
-	$response = wp_remote_get( 'https://api.github.com/repos/nerds-code-lab/nerds-toolkit/releases/latest', array(
+	$response = wp_remote_get( 'https://raw.githubusercontent.com/nerds-code-lab/nerds-toolkit/main/update.json', array(
 		'timeout' => 10,
-		'headers' => array( 'Accept' => 'application/vnd.github+json', 'User-Agent' => 'Nerds-Toolkit/' . NERDS_TOOLKIT_VERSION ),
+		'headers' => array( 'Accept' => 'application/json', 'User-Agent' => 'Nerds-Toolkit/' . NERDS_TOOLKIT_VERSION ),
 	) );
 	if ( is_wp_error( $response ) || 200 !== wp_remote_retrieve_response_code( $response ) ) { return null; }
-	$release = json_decode( wp_remote_retrieve_body( $response ), true );
-	$version = ltrim( sanitize_text_field( $release['tag_name'] ?? '' ), 'v' );
-	$package = '';
-	foreach ( $release['assets'] ?? array() as $asset ) {
-		if ( 'nerds-toolkit-' . $version . '.zip' === ( $asset['name'] ?? '' ) ) {
-			$package = esc_url_raw( $asset['browser_download_url'] ?? '' );
-			break;
-		}
-	}
+	$manifest = json_decode( wp_remote_retrieve_body( $response ), true );
+	$version = sanitize_text_field( $manifest['version'] ?? '' );
+	$package = esc_url_raw( $manifest['package'] ?? '' );
 	if ( ! preg_match( '/^\d+\.\d+\.\d+(?:-[A-Za-z0-9.-]+)?$/', $version ) || '' === $package ) { return null; }
 	$metadata = array(
 		'version' => $version,
 		'package' => $package,
-		'url' => esc_url_raw( $release['html_url'] ?? 'https://github.com/nerds-code-lab/nerds-toolkit' ),
-		'requires' => '6.6',
-		'requires_php' => '8.2',
-		'tested' => get_bloginfo( 'version' ),
+		'url' => esc_url_raw( $manifest['url'] ?? 'https://github.com/nerds-code-lab/nerds-toolkit' ),
+		'requires' => sanitize_text_field( $manifest['requires'] ?? '6.6' ),
+		'requires_php' => sanitize_text_field( $manifest['requires_php'] ?? '8.2' ),
+		'tested' => sanitize_text_field( $manifest['tested'] ?? get_bloginfo( 'version' ) ),
 	);
 	set_site_transient( 'nerds_toolkit_github_release', $metadata, 6 * HOUR_IN_SECONDS );
 	return $metadata;

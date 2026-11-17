@@ -3,7 +3,7 @@ Contributors: apodimi
 Tags: elementor, layouts, navigation, woocommerce, toolkit
 Requires at least: 6.6
 Requires PHP: 8.2
-Stable tag: 1.2.0
+Stable tag: 1.2.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -31,6 +31,9 @@ Stored settings and layouts are preserved when the plugin is deactivated.
 3. Configure shared details under Nerds Lab in the WordPress administration area.
 
 == Changelog ==
+
+= 1.2.1 =
+* Use the repository-hosted update manifest and installable package without a third-party updater.
 
 = 1.2.0 =
 * Added native update discovery from official Nerds Code Lab GitHub release assets.

@@ -1,0 +1,8 @@
+{
+  "version": "1.2.1",
+  "package": "https://raw.githubusercontent.com/nerds-code-lab/nerds-toolkit/main/releases/nerds-toolkit-1.2.1.zip",
+  "url": "https://github.com/nerds-code-lab/nerds-toolkit",
+  "requires": "6.6",
+  "requires_php": "8.2",
+  "tested": "7.1"
+}
