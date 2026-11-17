@@ -94,6 +94,7 @@ function nerds_toolkit_dashboard_page(): void {
 				</tbody>
 			</table>
 		<?php endif; ?>
+		<?php do_action( 'nerds_toolkit_dashboard_after' ); ?>
 	</div>
 	<?php
 }
