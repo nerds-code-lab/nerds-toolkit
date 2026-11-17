@@ -1,0 +1,14 @@
+.nl-product-carousel { width:100%; min-width:0; }
+.nl-product-carousel .woocommerce ul.products { display:flex; flex-wrap:nowrap; gap:28px; overflow-x:auto; overscroll-behavior-x:contain; scroll-snap-type:x mandatory; scroll-padding-inline:4px; padding:4px 4px 22px; margin:0; scrollbar-width:thin; scrollbar-color:#a0adbb transparent; }
+.nl-product-carousel .woocommerce ul.products li.product { flex:0 0 calc((100% - 56px) / 2.35); width:auto!important; min-width:0; float:none; margin:0!important; scroll-snap-align:start; }
+.nl-product-carousel .woocommerce ul.products::before,.nl-product-carousel .woocommerce ul.products::after { display:none; }
+.nl-carousel-controls { display:flex; align-items:center; justify-content:flex-end; gap:12px; margin-bottom:24px; }
+.nl-carousel-controls[hidden] { display:none; }
+.nl-carousel-controls button { width:48px; height:48px; padding:0; border:1px solid #a6b2c0; background:transparent; color:#10233c; border-radius:50%; cursor:pointer; font-size:24px; }
+.nl-carousel-controls button:disabled { opacity:.35; cursor:default; }
+.nl-carousel-status { font-size:14px; margin-right:12px; font-variant-numeric:tabular-nums; }
+.nl-product-carousel :focus-visible { outline:3px solid #9c6a15; outline-offset:3px; }
+@media(max-width:767px) { .nl-product-carousel .woocommerce ul.products { gap:18px; } .nl-product-carousel .woocommerce ul.products li.product { flex-basis:85%; } }
+@media(prefers-reduced-motion:reduce) { .nl-product-carousel .woocommerce ul.products { scroll-behavior:auto; } }
+
+.nl-carousel-controls button svg { display:block; margin:auto; width:20px; height:20px; }

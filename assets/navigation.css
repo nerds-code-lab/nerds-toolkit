@@ -1,0 +1,9 @@
+.nl-layout-menu-toggle { display: none; font: inherit; color: inherit; cursor: pointer; padding: .6em 1em; border: 1px solid currentColor; border-radius: var(--nl-radius, .25rem); background: transparent; }
+.nl-layout-menu-toggle:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+@media (max-width: 782px) {
+  .nl-layout-navigation[data-nl-enhanced] > .nl-layout-menu-toggle { display: inline-flex; }
+  .nl-layout-navigation[data-nl-enhanced] > .nl-layout-menu-toggle[aria-expanded="false"] + .nl-layout-menu { display: none; }
+  .nl-layout-navigation[data-nl-enhanced] > .nl-layout-menu-toggle[aria-expanded="true"] + .nl-layout-menu { display: flex; flex-direction: column; align-items: flex-start; gap: .25rem; margin-block-start: .75rem; }
+  .nl-layout-navigation[data-nl-enhanced] .nl-layout-menu a { display: inline-block; padding: .65rem .25rem; }
+  .nl-layout-navigation[data-nl-enhanced] .nl-layout-menu .sub-menu { display: block; position: static; list-style: none; padding-inline-start: 1rem; }
+}
