@@ -1,23 +1,23 @@
 <?php
 /**
  * Plugin Name: Nerds Toolkit
- * Plugin URI: https://github.com/apodimi/nerds-toolkit
+ * Plugin URI: https://github.com/nerds-lab/nerds-toolkit
  * Description: Reusable site layouts, business data, navigation, Elementor widgets and optional WooCommerce tools.
- * Version: 1.0.0
+ * Version: 1.0.1
  * Requires at least: 6.6
  * Requires PHP: 8.2
  * Author: Nerds Lab
- * Author URI: https://github.com/apodimi
+ * Author URI: https://github.com/nerds-lab
  * License: GPL-2.0-or-later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain: nerds-toolkit
- * Update URI: https://github.com/apodimi/nerds-toolkit
- * GitHub Plugin URI: https://github.com/apodimi/nerds-toolkit
+ * Update URI: https://github.com/nerds-lab/nerds-toolkit
+ * GitHub Plugin URI: https://github.com/nerds-lab/nerds-toolkit
  */
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'NERDS_TOOLKIT_VERSION', '1.0.0' );
+define( 'NERDS_TOOLKIT_VERSION', '1.0.1' );
 define( 'NERDS_TOOLKIT_PATH', plugin_dir_path( __FILE__ ) );
 define( 'NERDS_TOOLKIT_URL', plugin_dir_url( __FILE__ ) );
 
