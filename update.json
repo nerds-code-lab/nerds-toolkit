@@ -1,6 +1,7 @@
 {
-  "version": "1.2.1",
-  "package": "https://raw.githubusercontent.com/nerds-code-lab/nerds-toolkit/main/releases/nerds-toolkit-1.2.1.zip",
+  "version": "1.2.2",
+  "package": "https://raw.githubusercontent.com/nerds-code-lab/nerds-toolkit/main/releases/nerds-toolkit-1.2.2.zip",
+  "sha256": "4529ef01a3ab14445a05ebbc655087bcf4f2e919c811179211f6a620e33bc269",
   "url": "https://github.com/nerds-code-lab/nerds-toolkit",
   "requires": "6.6",
   "requires_php": "8.2",
